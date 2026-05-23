@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergio Vega · Energy Advisor · Audit your Spanish electricity bill</title>
+<meta name="description" content="I read your Spanish electricity bill so you don't have to. Free audit. If there's real saving, I handle it. If not, you stay where you are. Costa Blanca, Spain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --negro: #111111;
+    --blanco: #FAFAFA;
+    --gris-claro: #F2F1ED;
+    --gris: #6B7280;
+    --naranja: #E94E1B;
+    --verde-wa: #25D366;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--negro);
+    background: var(--blanco);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    font-size: 19px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 18px 0; border-bottom: 1px solid #e5e5e0; background: white; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .logo { font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
+  .logo-dot { color: var(--naranja); }
+  .lang-switch { font-size: 14px; }
+  .lang-switch a { color: var(--gris); text-decoration: none; padding: 0 6px; }
+  .lang-switch a.active { color: var(--negro); font-weight: 600; }
+
+  .hero { padding: 110px 0 90px; background: var(--blanco); }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.0;
+    margin-bottom: 32px;
+  }
+  .hero h1 .accent { color: var(--naranja); }
+  .hero-sub {
+    font-size: clamp(18px, 2.2vw, 22px);
+    color: var(--gris);
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-wa { background: var(--verde-wa); color: white; }
+  .btn-wa:hover { background: #1eb854; }
+  .hero-foot { font-size: 14px; color: var(--gris); margin-top: 18px; }
+  .hero-foot strong { color: var(--negro); }
+
+  .body { padding: 80px 0; }
+  .body p { margin-bottom: 24px; line-height: 1.75; }
+  .body p strong { color: var(--negro); }
+  .highlight { color: var(--naranja); font-weight: 700; }
+  .body em.quote {
+    display: block;
+    margin: 32px 0;
+    padding: 24px 32px;
+    border-left: 3px solid var(--naranja);
+    background: var(--gris-claro);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--negro);
+  }
+  .body h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 56px 0 24px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .body h3 .accent { color: var(--naranja); }
+  .body ul { list-style: none; margin: 24px 0 32px; padding: 0; }
+  .body ul li { padding: 8px 0 8px 28px; position: relative; }
+  .body ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--naranja);
+    font-weight: 700;
+  }
+  .body .pull {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 40px 0;
+    color: var(--negro);
+    letter-spacing: -0.01em;
+  }
+  .body .pull .accent { color: var(--naranja); }
+
+  .cta-inline {
+    margin: 56px 0;
+    padding: 40px 0;
+    border-top: 1px solid #e5e5e0;
+    border-bottom: 1px solid #e5e5e0;
+    text-align: center;
+  }
+  .cta-inline p {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  .faq { padding: 80px 0; background: var(--gris-claro); }
+  .faq h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+    line-height: 1.1;
+  }
+  .faq-item { border-bottom: 1px solid #d4d3cd; padding: 24px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .faq-item p { color: var(--gris); font-size: 17px; line-height: 1.6; }
+
+  .cta-final {
+    text-align: center;
+    padding: 100px 24px;
+    background: var(--negro);
+    color: white;
+  }
+  .cta-final h2 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 0 auto 24px;
+    max-width: 720px;
+    line-height: 1.1;
+  }
+  .cta-final h2 .accent { color: var(--naranja); }
+  .cta-final p {
+    color: #d1d5db;
+    font-size: 19px;
+    max-width: 640px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .cta-final .pd {
+    margin-top: 48px;
+    color: #a1a1aa;
+    font-size: 15px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    text-align: left;
+    padding: 24px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+  }
+  .cta-final .pd strong { color: white; }
+
+  footer {
+    padding: 32px 24px;
+    color: var(--gris);
+    font-size: 14px;
+    text-align: center;
+  }
+  footer a { color: var(--gris); text-decoration: underline; }
+  footer .footer-divider { margin: 0 12px; color: #c4c2b8; }
+
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--verde-wa);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    text-decoration: none;
+    font-size: 28px;
+    z-index: 200;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { padding: 64px 0 56px; }
+    .body { padding: 56px 0; }
+    .body h3 { font-size: 24px; margin: 40px 0 20px; }
+    .body .pull { font-size: 22px; }
+    .body em.quote { font-size: 19px; padding: 20px 24px; }
+    .faq, .cta-final { padding: 64px 24px; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1821994165872929');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1821994165872929&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">sergio vega<span class="logo-dot">.</span></div>
+    <div class="lang-switch">
+      <a href="/">ES</a>
+      <a href="#" class="active">EN</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>I audit your Spanish electricity bill in plain English. <span class="accent">Free.</span> If there's saving, I handle it. If not, you stay as you are.</h1>
+    <p class="hero-sub">I won't call you at 3pm. Snap a photo of your latest bill now, <span class="highlight">30 seconds</span>, and send it on WhatsApp.</p>
+    <a href="https://wa.me/34694918102?text=Hi%20Sergio,%20I'd%20like%20you%20to%20review%20my%20electricity%20bill" class="btn btn-wa" onclick="fbq('track', 'Contact'); fbq('track', 'Lead');">Send me your bill on WhatsApp →</a>
+    <p class="hero-foot"><strong>Audit always free. No commitment. No tie-ins.</strong> Independent energy advisor. Costa Blanca, Spain. Bilingual ES/EN.</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<section class="body">
+  <div class="wrap">
+
+    <p><strong>Look.</strong></p>
+
+    <p>A few months ago I was reading Trustpilot reviews of Spanish electricity providers.</p>
+
+    <p>One stuck with me:</p>
+
+    <em class="quote">"I've filed 4 complaints and they don't respond."</em>
+
+    <p>It was from a customer who had been paying a charge called "Protection 360" on his bill <strong>for 2 years</strong>. €4.99/month. €119 wasted. A charge he had <strong>never agreed to</strong>. And when he tried to cancel it, no one picked up the phone.</p>
+
+    <p>I scrolled to another review. Same problem.</p>
+
+    <p>Another. And another. There were hundreds.</p>
+
+    <p>I thought it was an Endesa thing. I checked Iberdrola. Naturgy. Holaluz. The same pattern across all of them, with similar hidden charges.</p>
+
+    <p>I work at the Mapfre insurance office in Rojales. For years I've been reviewing contracts and I know the pattern: they slip an additional service into a phone call you don't remember, charge you for years, and when you try to cancel, no one answers.</p>
+
+    <p><strong>In insurance, we know how to deactivate it.</strong></p>
+
+    <p>I started looking at electricity bills of people close to me. Almost all had hidden charges. Maintenance plans never signed up for. Insurance policies that protected nothing. Things the customer accepted without realising — and kept paying for years.</p>
+
+    <p>And here's the thing about expats specifically: <strong>most of you have no idea this is happening</strong>, because the bill is in Spanish, the call centre is in Spanish, and nobody explains anything in plain English. Even if you suspect something is off, you don't have the tools to prove it.</p>
+
+    <p class="pull">That's why I now also <span class="accent">audit electricity bills.</span></p>
+
+    <h3>How it works:</h3>
+
+    <p>You send me your bill on WhatsApp. A photo is enough.</p>
+
+    <p>Within 24 hours, I send you back a clear breakdown <strong>in plain English</strong>: what you pay, what you should pay, how much you're overpaying. With actual numbers, no jargon.</p>
+
+    <p><strong>I compare every electricity provider and tariff that fits your profile — over 30 options — and recommend the best one for YOU</strong>, not the one that pays me the highest commission. If your current provider is the best for you, I'll tell you and we'll leave things as they are.</p>
+
+    <p>If a switch makes sense, I handle everything. You sign a paper and within 15 days you're paying what you should.</p>
+
+    <h3><span class="accent">And after the switch?</span></h3>
+
+    <p>That's where almost everyone disappears. Once they have you as a customer, you don't hear from them again until the next sales attempt.</p>
+
+    <p class="pull">Not me.</p>
+
+    <p>Every month, I review the market for you. If a better option appears, I let you know and we switch. If nothing better is out there, I leave you alone. It's 1-2 hours of my time per month — you don't have to do anything.</p>
+
+    <p>And if you ever have a problem with your bill, <strong>you don't call a call centre. You call me.</strong> On WhatsApp. No queues, no "let me transfer you", no Spanish-only voicemail. I already know who you are.</p>
+
+    <p>That's the deal.</p>
+
+    <h3>How much does it cost? <span class="accent">Zero.</span></h3>
+
+    <p>The audit is always free. <strong>You never pay me directly.</strong> If we get you a switch that benefits you, the new provider pays me a small commission for bringing you in. If a switch isn't worth it, nobody pays anything and we leave things as they are.</p>
+
+    <p>Most advisors push you to switch no matter what, because they only earn if you move. I'd rather earn your trust once and keep it for years, than take a quick commission and forget about you.</p>
+
+    <div class="cta-inline">
+      <p>Got your bill nearby? Snap a photo and send it. <span class="highlight">30 seconds</span>.</p>
+      <a href="https://wa.me/34694918102?text=Hi%20Sergio,%20I'd%20like%20you%20to%20review%20my%20electricity%20bill" class="btn btn-wa" onclick="fbq('track', 'Contact'); fbq('track', 'Lead');">Send me your bill on WhatsApp →</a>
+    </div>
+
+    <p>What you can expect when you send it:</p>
+
+    <ul>
+      <li>I respond within 24 hours.</li>
+      <li>I tell you what I see — in plain English. No selling.</li>
+      <li>I don't insist if you decide not to switch.</li>
+      <li>If we switch, in 15 days you're paying the right amount.</li>
+      <li>Every month I check whether your option is still the best. Without you having to ask.</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2>What everyone asks.</h2>
+
+    <div class="faq-item">
+      <h3>What if I don't save anything?</h3>
+      <p>I tell you and we don't touch anything. No fees. No commitment. The audit is always free.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Will I lose electricity when switching?</h3>
+      <p>No. Switching providers in Spain is like switching mobile providers: same cable, same coverage, different company billing you. Zero outages. Not a single second.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any tie-ins or contracts?</h3>
+      <p>None with me. If the provider has any, I'll tell you upfront — and you decide.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is this a scam?</h3>
+      <p>Your bill contains public data only (CUPS code, provider name, contracted power). I don't ask for your bank details to audit it. Any change is authorized by YOU with your signature. Nothing happens without your explicit approval.</p>
+    </div>
+    <div class="faq-item">
+      <h3>If it's free, where's the catch?</h3>
+      <p>No catch. The audit is always free — you never pay me. When you switch providers, the new one pays me a small commission for bringing you as a customer. And if there's no real saving for you, we don't switch and nobody pays anything.</p>
+    </div>
+    <div class="faq-item">
+      <h3>I'm only here a few months a year. Does this still apply?</h3>
+      <p>Even more so. Empty property = you keep paying the fixed power charge regardless. Most second homes are massively over-contracted on power. Reducing this alone often saves €200-300/year — money you're throwing away on a bill you barely use.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What about gas and solar panels?</h3>
+      <p>Both. If you have natural gas, I audit it together with electricity. If you have solar panels, even more important: surplus compensation rates vary massively across providers (from €0.02/kWh to €0.10/kWh — five times the difference). Most expats with solar are losing money without knowing it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="wrap">
+    <h2>While you think about it, you keep <span class="accent">overpaying</span>.</h2>
+    <p>Snap a photo of your latest bill now. <span class="highlight">30 seconds</span>. Send it on WhatsApp and in 24 hours I'll respond with a clear diagnosis: what you pay, what you should pay, how much you're overpaying. The audit is always free. If there's real saving, I'll handle the switch. If not, you stay where you are.</p>
+    <a href="https://wa.me/34694918102?text=Hi%20Sergio,%20I'd%20like%20you%20to%20review%20my%20electricity%20bill" class="btn btn-wa" onclick="fbq('track', 'Contact'); fbq('track', 'Lead');">Send me your bill on WhatsApp →</a>
+
+    <div class="pd">
+      <p><strong>P.S.</strong> — A switch takes 15 days to complete. In 15 days you could be paying €30-50 less every month. Every month you don't send me your bill is €30-50 you're losing. That's maths, not advertising.</p>
+      <p style="margin-top: 12px;">If you happen to be in the lucky 27% who already pay the right amount, even better: I'll confirm it in 5 minutes and we go our separate ways. But if you're in the 73% who overpay without knowing, this doesn't fix itself. You have to send it.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Sergio Vega</strong> · Independent energy advisor
+  <br>
+  Plaza España 5, 03170 Rojales (Alicante), Spain <span class="footer-divider">·</span> WhatsApp +34 694 91 81 02 <span class="footer-divider">·</span> sergio@sergiovega.es
+  <br>
+  <a href="/legal">Legal notice</a><span class="footer-divider">·</span><a href="/privacy">Privacy</a><span class="footer-divider">·</span><a href="/cookies">Cookies</a>
+</footer>
+
+<a href="https://wa.me/34694918102" class="wa-float" aria-label="Contact via WhatsApp" onclick="fbq('track', 'Contact');">💬</a>
+
+</body>
+</html>
